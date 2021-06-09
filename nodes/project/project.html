@@ -1,0 +1,35 @@
+<script type="text/javascript">
+    RED.nodes.registerType('project',{
+        category: 'ozmap',
+        color: '#a6bbcf',
+        defaults: {
+            name: { value:"ozmap" },
+            url: { value:"https://localhost:9090", type:"url" }
+        },
+        credentials: {
+            username: {type:"text"},
+            password: {type:"password"},
+            key: {type:"password"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "file.png",
+        label: function() {
+            return "OZMap project:"+this.name;
+        },
+        oneditprepare: function() {
+            $("#node-config-input-topology").append(new Option("option text", "value"));
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="project">
+    <div class="form-row node-config-input-topology">
+        <label for="node-config-input-topology">OZMap Connection</span></label>
+        <select id="node-config-input-topology"></select>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="project">
+    <p>Get projects from ozmap</p>
+</script>
