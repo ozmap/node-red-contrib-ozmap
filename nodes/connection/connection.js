@@ -18,16 +18,20 @@ module.exports = function(RED) {
 
             this.status({fill:"yellow",shape:"dot",text:"connecting..."});
 
+            let ozmapconnections = flowContext.get('ozmapconnections');
+
             try {
                 key = await ozmap.authenticate({login, password, key});
                 this.status({fill:"green",shape:"dot",text:"connected"});
-                flowContext.set(name,ozmap);
+                ozmapconnections[name] = ozmap;
                 msg.payload = {url,login,password, key};
             }catch (error){
-                flowContext.set(name,null);
+                ozmapconnections[name] = null;
                 this.status({fill:"red",shape:"ring",text:"disconnected"});
                 msg.payload = {error, name, url, login, password, key};
             }
+
+            flowContext.set('ozmapconnections',ozmapconnections);
 
             node.send(msg);
         });
