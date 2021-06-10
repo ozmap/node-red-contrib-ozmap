@@ -23,6 +23,7 @@
   "node-red": {
     "nodes": {
       "project": "./nodes/project/project.js",
+      "box": "./nodes/box/box.js",
       "connection": "./nodes/ozmap-connection/ozmap-connection.js"
     }
   },
