@@ -4,29 +4,26 @@
         color: '#a6bbcf',
         defaults: {
             name: { value:"ozmap" },
-            url: { value:"https://localhost:9090", type:"url" }
+            ozmapconnection: {value:"", type:"ozmap-connection"},
         },
-        credentials: {
-            username: {type:"text"},
-            password: {type:"password"},
-            key: {type:"password"}
-        },
+
         inputs:1,
         outputs:1,
         icon: "file.png",
         label: function() {
             return "OZMap project:"+this.name;
-        },
-        oneditprepare: function() {
-            $("#node-config-input-topology").append(new Option("option text", "value"));
         }
     });
 </script>
 
 <script type="text/html" data-template-name="project">
-    <div class="form-row node-config-input-topology">
-        <label for="node-config-input-topology">OZMap Connection</span></label>
-        <select id="node-config-input-topology"></select>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-ozmapconnection"><i class="fa fa-tag"></i> OZMap Connection</label>
+        <input type="text" id="node-input-ozmapconnection" placeholder="Name">
     </div>
 </script>
 

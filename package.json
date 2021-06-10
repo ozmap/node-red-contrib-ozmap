@@ -23,7 +23,7 @@
   "node-red": {
     "nodes": {
       "project": "./nodes/project/project.js",
-      "connection": "./nodes/connection/connection.js"
+      "connection": "./nodes/ozmap-connection/ozmap-connection.js"
     }
   },
   "author": "Jose Raupp da Rosa Junior <jose.raupp@ozmap.com.br>",
