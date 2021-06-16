@@ -1,4 +1,4 @@
-# ozmap-api
+# node-red-contrib-ozmap-api
 Wrapper da API do OZMap para node-red
 
 ###Para rodar a aplicação, use:
