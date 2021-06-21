@@ -1,4 +1,4 @@
-const {OZmap} = require("ozmap-api");
+const OZmapSDK = require("ozmap-sdk");
 
 module.exports = function(RED) {
 
@@ -6,8 +6,10 @@ module.exports = function(RED) {
         RED.nodes.createNode(this,n);
         this.url = n.url;
         this.username = n.username;
-        this.ozmap = new OZmap(this.credentials.key, this.url);
-        this.ozmap.authenticate({login: this.username, password: this.credentials.password, key: this.credentials.key});
+        this.ozmap = new OZmapSDK(this.url, this.credentials.key);
+        this.ozmap.authentication(this.username, this.credentials.password).then((a)=>{
+
+        })
     }
 
     RED.nodes.registerType("ozmap-connection",OZMapConnection,{
