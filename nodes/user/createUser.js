@@ -1,5 +1,5 @@
 module.exports = function (RED) {
-  function user(config) {
+  function createUser(config) {
     RED.nodes.createNode(this, config);
 
     this.ozmapconnection = RED.nodes.getNode(config.ozmapconnection);
@@ -13,15 +13,7 @@ module.exports = function (RED) {
       }
 
       try {
-        if (msg.payload.filters) {
-          msg.payload = await ozmap
-            .getUser()
-            .getAllByFilter(msg.payload.filters);
-        } else if (msg.payload.ids) {
-          msg.payload = await ozmap.getUser().getByIds(msg.payload.ids);
-        } else {
-          msg.payload = await ozmap.getUser().getAll();
-        }
+        msg.payload = await ozmap.getUser().create(msg.payload);
 
         return this.send([msg, null]);
       } catch (error) {
@@ -30,5 +22,5 @@ module.exports = function (RED) {
       }
     });
   }
-  RED.nodes.registerType('user', user);
+  RED.nodes.registerType('createUser', createUser);
 };
