@@ -24,6 +24,7 @@
     "nodes": {
       "project": "./nodes/project/project.js",
       "box": "./nodes/box/box.js",
+      "user": "./nodes/user/user.js",
       "connection": "./nodes/ozmap-connection/ozmap-connection.js"
     }
   },

@@ -11,13 +11,23 @@ module.exports = function(RED) {
                 this.status({fill:"red",shape:"ring",text:"disconnected"});
                 return this.send([null, msg]);
             }
+
             try {
-                msg.payload = await ozmap.getBox().getAll()
+                if(msg.payload.filters) {
+                    msg.payload = await ozmap.getBox().getAllByFilter(msg.payload.filters);
+                }else if(msg.payload.ids) {
+                    msg.payload = await ozmap.getBox().getByIds(msg.payload.ids);
+                }else{
+                    msg.payload = await ozmap.getBox().getAll();
+                }
+
                 return this.send([msg,null]);
+
             }catch (error){
                 msg.payload = error;
                 return this.send([null, msg]);
             }
+
         });
     }
     RED.nodes.registerType("box",box);

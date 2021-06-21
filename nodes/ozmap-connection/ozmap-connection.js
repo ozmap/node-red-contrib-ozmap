@@ -8,8 +8,8 @@ module.exports = function(RED) {
         this.username = n.username;
         this.ozmap = new OZmapSDK(this.url, this.credentials.key);
         this.ozmap.authentication(this.username, this.credentials.password).then((a)=>{
-
-        })
+            console.log("Ozmap foi iniciado...")
+        });
     }
 
     RED.nodes.registerType("ozmap-connection",OZMapConnection,{
