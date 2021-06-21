@@ -23,6 +23,7 @@
   "node-red": {
     "nodes": {
       "project": "./nodes/project/project.js",
+      "project-clone": "./nodes/project/clone.js",
       "box": "./nodes/box/box.js",
       "user": "./nodes/user/user.js",
       "connection": "./nodes/ozmap-connection/ozmap-connection.js"
