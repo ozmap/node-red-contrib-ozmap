@@ -1,5 +1,5 @@
 module.exports = function (RED) {
-    function updateClient(config) {
+    function getOZmapClientByONUCode(config) {
         RED.nodes.createNode(this, config);
 
         this.ozmapconnection = RED.nodes.getNode(config.ozmapconnection);
@@ -13,7 +13,7 @@ module.exports = function (RED) {
             }
 
             try {
-                await ozmap.getClient().update(msg.payload)
+                msg.payload = await ozmap.getClient().getOneByONUCode(msg.payload.serial_number);
                 return this.send([msg, null]);
 
             } catch (error) {
@@ -24,5 +24,5 @@ module.exports = function (RED) {
         });
     }
 
-    RED.nodes.registerType('updateClient', updateClient);
+    RED.nodes.registerType('getOZmapClientByONUCode', getOZmapClientByONUCode);
 };
