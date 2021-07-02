@@ -28,6 +28,7 @@
       "createUser":"./nodes/user/createUser.js",
       "updatePassword":"./nodes/user/updateUserPassword.js",
       "updateClient": "./nodes/client/updateClient.js",
+      "getOZmapClientByONUCode": "./nodes/client/getOZmapClientByONUCode.js",
       "connection": "./nodes/ozmap-connection/ozmap-connection.js"
     }
   },
