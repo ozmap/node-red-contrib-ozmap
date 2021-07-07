@@ -1,0 +1,39 @@
+<script type="text/javascript">
+    RED.nodes.registerType('updateProperty',{
+        category: 'ozmap',
+        color: '#a6bbcf',
+        defaults: {
+            name: { value:"updateProperty" },
+            ozmapconnection: {value:"", type:"ozmap-connection"},
+        },
+
+        inputs:1,
+        outputs:2,
+        icon: "file.png",
+        label: function() {
+            return "OZMap: "+this.name;
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="updateProperty">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-ozmapconnection"><i class="fa fa-tag"></i> OZMap Connection</label>
+        <input type="text" id="node-input-ozmapconnection" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <br/><br/>
+        <a style="color: blue" href="https://api.ozmap.com.br/#/Caixa/get_updatePropertyes" target="_blank">
+            https://api.ozmap.com.br/#/Caixa/get_updatePropertyes
+        </a>
+    </div>
+
+</script>
+
+<script type="text/html" data-help-name="updateProperty">
+    <p>Get updateProperty from ozmap</p>
+</script>
