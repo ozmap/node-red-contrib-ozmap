@@ -13,9 +13,8 @@ module.exports = function (RED) {
             }
 
             try {
-                await ozmap.getClient().update(msg.payload)
+                await ozmap.getClient().update(msg.payload);
                 return this.send([msg, null]);
-
             } catch (error) {
                 msg.payload = error;
                 return this.send([null, msg]);
