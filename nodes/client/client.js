@@ -1,5 +1,5 @@
 module.exports = function(RED) {
-    function box(config) {
+    function client(config) {
         RED.nodes.createNode(this,config);
 
         this.ozmapconnection = RED.nodes.getNode(config.ozmapconnection);
@@ -14,13 +14,13 @@ module.exports = function(RED) {
 
             try {
                 if(msg.payload.query) {
-                    msg.payload = await ozmap.getBox().getAllByQuery(msg.payload.query);
+                    msg.payload = await ozmap.getClient().getAllByQuery(msg.payload.query);
                 }else if(msg.payload.filters) {
-                    msg.payload = await ozmap.getBox().getAllByFilter(msg.payload.filters);
+                    msg.payload = await ozmap.getClient().getAllByFilter(msg.payload.filters);
                 }else if(msg.payload.ids) {
-                    msg.payload = await ozmap.getBox().getByIds(msg.payload.ids);
+                    msg.payload = await ozmap.getClient().getByIds(msg.payload.ids);
                 }else{
-                    msg.payload = await ozmap.getBox().getAll();
+                    msg.payload = await ozmap.getClient().getAll();
                 }
 
                 return this.send([msg,null]);
@@ -32,5 +32,5 @@ module.exports = function(RED) {
 
         });
     }
-    RED.nodes.registerType("box",box);
+    RED.nodes.registerType("client",client);
 }
