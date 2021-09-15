@@ -1,7 +1,7 @@
 {
     "node-red": {
         "name": "node-red",
-        "version": "1.3.5",
+        "version": "2.0.6",
         "local": false,
         "user": false,
         "nodes": {
@@ -181,6 +181,17 @@
                 "user": false,
                 "module": "node-red",
                 "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/90-exec.js"
+            },
+            "rbe": {
+                "name": "rbe",
+                "types": [
+                    "rbe"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red",
+                "file": "/usr/src/node-red/node_modules/@node-red/nodes/core/function/rbe.js"
             },
             "tls": {
                 "name": "tls",
@@ -410,6 +421,17 @@
                 "module": "node-red-contrib-ozmap",
                 "file": "/data/node_modules/node-red-contrib-ozmap/nodes/project/project.js"
             },
+            "project-clone": {
+                "name": "project-clone",
+                "types": [
+                    "project-clone"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-ozmap",
+                "file": "/data/node_modules/node-red-contrib-ozmap/nodes/project/clone.js"
+            },
             "box": {
                 "name": "box",
                 "types": [
@@ -432,6 +454,105 @@
                 "module": "node-red-contrib-ozmap",
                 "file": "/data/node_modules/node-red-contrib-ozmap/nodes/user/user.js"
             },
+            "createUser": {
+                "name": "createUser",
+                "types": [
+                    "createUser"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-ozmap",
+                "file": "/data/node_modules/node-red-contrib-ozmap/nodes/user/createUser.js"
+            },
+            "updatePassword": {
+                "name": "updatePassword",
+                "types": [
+                    "updateUserPassword"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-ozmap",
+                "file": "/data/node_modules/node-red-contrib-ozmap/nodes/user/updateUserPassword.js"
+            },
+            "createClient": {
+                "name": "createClient",
+                "types": [
+                    "createClient"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-ozmap",
+                "file": "/data/node_modules/node-red-contrib-ozmap/nodes/client/createClient.js"
+            },
+            "deleteClient": {
+                "name": "deleteClient",
+                "types": [
+                    "deleteClient"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-ozmap",
+                "file": "/data/node_modules/node-red-contrib-ozmap/nodes/client/deleteClient.js"
+            },
+            "updateClient": {
+                "name": "updateClient",
+                "types": [
+                    "updateClient"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-ozmap",
+                "file": "/data/node_modules/node-red-contrib-ozmap/nodes/client/updateClient.js"
+            },
+            "getOZmapClientByONUCode": {
+                "name": "getOZmapClientByONUCode",
+                "types": [
+                    "getOZmapClientByONUCode"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-ozmap",
+                "file": "/data/node_modules/node-red-contrib-ozmap/nodes/client/getOZmapClientByONUCode.js"
+            },
+            "getPropertyByClientId": {
+                "name": "getPropertyByClientId",
+                "types": [
+                    "getPropertyByClientId"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-ozmap",
+                "file": "/data/node_modules/node-red-contrib-ozmap/nodes/property/getPropertyByClientId.js"
+            },
+            "updateProperty": {
+                "name": "updateProperty",
+                "types": [
+                    "updateProperty"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-ozmap",
+                "file": "/data/node_modules/node-red-contrib-ozmap/nodes/property/updateProperty.js"
+            },
+            "getAllPropertiesWithClients": {
+                "name": "getAllPropertiesWithClients",
+                "types": [
+                    "getAllPropertiesWithClients"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-ozmap",
+                "file": "/data/node_modules/node-red-contrib-ozmap/nodes/property/getAllPropertiesWithClients.js"
+            },
             "connection": {
                 "name": "connection",
                 "types": [
@@ -442,44 +563,6 @@
                 "user": false,
                 "module": "node-red-contrib-ozmap",
                 "file": "/data/node_modules/node-red-contrib-ozmap/nodes/ozmap-connection/ozmap-connection.js"
-            }
-        }
-    },
-    "node-red-node-rbe": {
-        "name": "node-red-node-rbe",
-        "version": "0.5.0",
-        "local": false,
-        "user": false,
-        "nodes": {
-            "rbe": {
-                "name": "rbe",
-                "types": [
-                    "rbe"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "node-red-node-rbe",
-                "file": "/usr/src/node-red/node_modules/node-red-node-rbe/rbe.js"
-            }
-        }
-    },
-    "node-red-node-tail": {
-        "name": "node-red-node-tail",
-        "version": "0.3.1",
-        "local": false,
-        "user": false,
-        "nodes": {
-            "tail": {
-                "name": "tail",
-                "types": [
-                    "tail"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "node-red-node-tail",
-                "file": "/usr/src/node-red/node_modules/node-red-node-tail/28-tail.js"
             }
         }
     }
