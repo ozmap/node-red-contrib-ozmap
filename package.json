@@ -28,6 +28,8 @@
       "user": "./nodes/user/user.js",
       "createUser":"./nodes/user/createUser.js",
       "updatePassword":"./nodes/user/updateUserPassword.js",
+      "createClient": "./nodes/client/createClient.js",
+      "deleteClient": "./nodes/client/deleteClient.js",
       "updateClient": "./nodes/client/updateClient.js",
       "getOZmapClientByONUCode": "./nodes/client/getOZmapClientByONUCode.js",
       "getPropertyByClientId": "./nodes/property/getPropertyByClientId.js",
@@ -41,8 +43,5 @@
   "bugs": {
     "url": "https://github.com/ozmap/node-red-contrib-ozmap/issues"
   },
-  "homepage": "https://github.com/ozmap/node-red-contrib-ozmap/wiki",
-  "dependencies": {
-    "ozmap-sdk": "^1.0.0"
-  }
+  "homepage": "https://github.com/ozmap/node-red-contrib-ozmap/wiki"
 }
