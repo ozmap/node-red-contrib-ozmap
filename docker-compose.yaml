@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  nodered:
+    image: "nodered/node-red"
+    container_name: "nodered"
+    volumes:
+      - ./data:/data
+      - ../ozmap-sdk:/data/node_modules/ozmap-sdk
+      - .:/data/node_modules/node-red-contrib-ozmap
+    environment: 
+      LOG_LEVEL: silly
+    ports: 
+      - target: 1880
+        published: 1880
+        protocol: tcp
+        mode: host
+      - target: 9229
+        published: 9229
+        protocol: tcp
+        mode: host
+    user: root
+    stdin_open: true
+    tty: true
