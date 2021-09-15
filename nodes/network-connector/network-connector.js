@@ -12,6 +12,7 @@ module.exports = function(RED) {
                 return this.send([null, msg]);
             }
 
+            this.status({fill:"blue",shape:"ring",text:"running"});
             try {
                 if(msg.payload.query) {
                     msg.payload = await ozmap.getNetworkConnector().getAllByQuery(msg.payload.query);
@@ -23,6 +24,7 @@ module.exports = function(RED) {
                     msg.payload = await ozmap.getNetworkConnector().getAll();
                 }
 
+                this.status({});
                 return this.send([msg,null]);
 
             }catch (error){

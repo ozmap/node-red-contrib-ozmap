@@ -1,5 +1,5 @@
 module.exports = function(RED) {
-    function box(config) {
+    function region(config) {
         RED.nodes.createNode(this,config);
 
         this.ozmapconnection = RED.nodes.getNode(config.ozmapconnection);
@@ -15,13 +15,13 @@ module.exports = function(RED) {
             this.status({fill:"blue",shape:"ring",text:"running"});
             try {
                 if(msg.payload.query) {
-                    msg.payload = await ozmap.getBox().getAllByQuery(msg.payload.query);
+                    msg.payload = await ozmap.getRegion().getAllByQuery(msg.payload.query);
                 }else if(msg.payload.filters) {
-                    msg.payload = await ozmap.getBox().getAllByFilter(msg.payload.filters);
+                    msg.payload = await ozmap.getRegion().getAllByFilter(msg.payload.filters);
                 }else if(msg.payload.ids) {
-                    msg.payload = await ozmap.getBox().getByIds(msg.payload.ids);
+                    msg.payload = await ozmap.getRegion().getByIds(msg.payload.ids);
                 }else{
-                    msg.payload = await ozmap.getBox().getAll();
+                    msg.payload = await ozmap.getRegion().getAll();
                 }
 
                 this.status({});
@@ -34,5 +34,5 @@ module.exports = function(RED) {
 
         });
     }
-    RED.nodes.registerType("box",box);
+    RED.nodes.registerType("region",region);
 }
