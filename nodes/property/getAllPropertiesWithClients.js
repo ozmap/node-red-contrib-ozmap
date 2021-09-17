@@ -13,8 +13,14 @@ module.exports = function (RED) {
             }
 
             try {
-                console.log(msg)
-                msg.payload = await ozmap.getProperty().getAllByQuery({filter:[{"property":"client","value":null,"operator":"ne"}], select:'client',limit:-1})
+                console.log(msg);
+                msg.payload = await ozmap.getProperty().getAllByQuery({
+                    filter: [{
+                        'property': 'client',
+                        'value': null,
+                        'operator': 'ne'
+                    }], select: 'client', limit: -1
+                });
                 return this.send([msg, null]);
 
             } catch (error) {
