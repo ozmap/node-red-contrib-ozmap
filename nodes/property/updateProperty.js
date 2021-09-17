@@ -13,10 +13,8 @@ module.exports = function (RED) {
             }
 
             try {
-                console.log(msg.payload)
-                await ozmap.getProperty().update(msg.payload)
+                await ozmap.getProperty().update(msg.payload);
                 return this.send([msg, null]);
-
             } catch (error) {
                 msg.payload = error;
                 return this.send([null, msg]);

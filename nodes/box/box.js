@@ -1,34 +1,35 @@
-module.exports = function(RED) {
+module.exports = function (RED) {
     function box(config) {
-        RED.nodes.createNode(this,config);
+        RED.nodes.createNode(this, config);
 
         this.ozmapconnection = RED.nodes.getNode(config.ozmapconnection);
         this.status({});
         this.on('input', async (msg) => {
             let ozmap = msg.ozmap || this.ozmapconnection.ozmap;
-            if(!ozmap.isConnected()){
-                msg.payload="Ozmap not connected!";
-                this.status({fill:"red",shape:"ring",text:"disconnected"});
+            if (!ozmap.isConnected()) {
+                msg.payload = 'Ozmap not connected!';
+                this.status({fill: 'red', shape: 'ring', text: 'disconnected'});
                 return this.send([null, msg]);
             }
 
             try {
-                if(msg.payload.filters) {
+                if (msg.payload.filters) {
                     msg.payload = await ozmap.getBox().getAllByFilter(msg.payload.filters);
-                }else if(msg.payload.ids) {
+                } else if (msg.payload.ids) {
                     msg.payload = await ozmap.getBox().getByIds(msg.payload.ids);
-                }else{
+                } else {
                     msg.payload = await ozmap.getBox().getAll();
                 }
 
-                return this.send([msg,null]);
+                return this.send([msg, null]);
 
-            }catch (error){
+            } catch (error) {
                 msg.payload = error;
                 return this.send([null, msg]);
             }
 
         });
     }
-    RED.nodes.registerType("box",box);
-}
+
+    RED.nodes.registerType('box', box);
+};
