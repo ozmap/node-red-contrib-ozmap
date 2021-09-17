@@ -12,8 +12,11 @@ module.exports = function (RED) {
                 return this.send([null, msg]);
             }
 
+            this.status({fill:"blue",shape:"ring",text:"running"});
             try {
-                if (msg.payload.filters) {
+                if(msg.payload.query) {
+                    msg.payload = await ozmap.getBox().getAllByQuery(msg.payload.query);
+                }else if(msg.payload.filters) {
                     msg.payload = await ozmap.getBox().getAllByFilter(msg.payload.filters);
                 } else if (msg.payload.ids) {
                     msg.payload = await ozmap.getBox().getByIds(msg.payload.ids);
@@ -21,7 +24,9 @@ module.exports = function (RED) {
                     msg.payload = await ozmap.getBox().getAll();
                 }
 
-                return this.send([msg, null]);
+                this.status({});
+                return this.send([msg,null]);
+
 
             } catch (error) {
                 msg.payload = error;

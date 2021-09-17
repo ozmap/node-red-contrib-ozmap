@@ -11,17 +11,16 @@ module.exports = function (RED) {
                 this.status({fill: 'red', shape: 'ring', text: 'disconnected'});
                 return this.send([null, msg]);
             }
-
-            try {
-                if (msg.payload.filters) {
-                    msg.payload = await ozmap
-                        .getUser()
-                        .getAllByFilter(msg.payload.filters);
-                } else if (msg.payload.ids) {
-                    msg.payload = await ozmap.getUser().getByIds(msg.payload.ids);
-                } else {
-                    msg.payload = await ozmap.getUser().getAll();
-                }
+      try {
+        if(msg.payload.query) {
+          msg.payload = await ozmap.getUser().getAllByQuery(msg.payload.query);
+        }else if(msg.payload.filters) {
+          msg.payload = await ozmap.getUser().getAllByFilter(msg.payload.filters);
+        }else if(msg.payload.ids) {
+          msg.payload = await ozmap.getUser().getByIds(msg.payload.ids);
+        }else{
+          msg.payload = await ozmap.getUser().getAll();
+        }
 
                 return this.send([msg, null]);
             } catch (error) {

@@ -26,14 +26,20 @@
       "project-clone": "./nodes/project/clone.js",
       "box": "./nodes/box/box.js",
       "user": "./nodes/user/user.js",
+      "cable": "./nodes/cable/cable.js",
+      "client": "./nodes/client/client.js",
+      "property": "./nodes/property/property.js",
       "createUser":"./nodes/user/createUser.js",
       "updatePassword":"./nodes/user/updateUserPassword.js",
       "updateClient": "./nodes/client/updateClient.js",
+      "networkConnector": "./nodes/network-connector/network-connector.js",
+      "networkConnectable": "./nodes/network-connectable/network-connectable.js",
       "getOZmapClientByONUCode": "./nodes/client/getOZmapClientByONUCode.js",
       "getPropertyByClientId": "./nodes/property/getPropertyByClientId.js",
       "updateProperty": "./nodes/property/updateProperty.js",
       "getAllPropertiesWithClients": "./nodes/property/getAllPropertiesWithClients.js",
-      "connection": "./nodes/ozmap-connection/ozmap-connection.js"
+      "connection": "./nodes/ozmap-connection/ozmap-connection.js",
+      "region": "./nodes/region/region.js"
     }
   },
   "author": "Jose Raupp da Rosa Junior <jose.raupp@ozmap.com.br>",
