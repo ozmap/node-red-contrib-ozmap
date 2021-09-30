@@ -15,7 +15,8 @@ module.exports = function (RED) {
             this.status({fill:"blue",shape:"ring",text:"running"});
             try {
                 if(msg.payload.query) {
-                    msg.payload = await ozmap.getBox().getAllByQuery(msg.payload.query);
+                    const query = JSON.parse(msg.payload.query);
+                    msg.payload = await ozmap.getBox().getAllByQuery(query);
                 }else if(msg.payload.filters) {
                     msg.payload = await ozmap.getBox().getAllByFilter(msg.payload.filters);
                 } else if (msg.payload.ids) {

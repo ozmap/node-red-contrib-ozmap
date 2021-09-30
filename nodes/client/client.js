@@ -11,10 +11,10 @@ module.exports = function(RED) {
                 this.status({fill:"red",shape:"ring",text:"disconnected"});
                 return this.send([null, msg]);
             }
-
             try {
                 if(msg.payload.query) {
-                    msg.payload = await ozmap.getClient().getAllByQuery(msg.payload.query);
+                    const query = JSON.parse(msg.payload.query);
+                    msg.payload = await ozmap.getClient().getAllByQuery(query);
                 }else if(msg.payload.filters) {
                     msg.payload = await ozmap.getClient().getAllByFilter(msg.payload.filters);
                 }else if(msg.payload.ids) {

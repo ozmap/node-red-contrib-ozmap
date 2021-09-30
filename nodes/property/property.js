@@ -14,7 +14,8 @@ module.exports = function(RED) {
 
             try {
                 if(msg.payload.query) {
-                    msg.payload = await ozmap.getProperty().getAllByQuery(msg.payload.query);
+                    const query = JSON.parse(msg.payload.query);
+                    msg.payload = await ozmap.getProperty().getAllByQuery(query);
                 }else if(msg.payload.filters) {
                     msg.payload = await ozmap.getProperty().getAllByFilter(msg.payload.filters);
                 }else if(msg.payload.ids) {
