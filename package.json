@@ -29,8 +29,8 @@
       "cable": "./nodes/cable/cable.js",
       "client": "./nodes/client/client.js",
       "property": "./nodes/property/property.js",
-      "createUser":"./nodes/user/createUser.js",
-      "updatePassword":"./nodes/user/updateUserPassword.js",
+      "createUser": "./nodes/user/createUser.js",
+      "updatePassword": "./nodes/user/updateUserPassword.js",
       "updateClient": "./nodes/client/updateClient.js",
       "networkConnector": "./nodes/network-connector/network-connector.js",
       "networkConnectable": "./nodes/network-connectable/network-connectable.js",
@@ -48,7 +48,5 @@
     "url": "https://github.com/ozmap/node-red-contrib-ozmap/issues"
   },
   "homepage": "https://github.com/ozmap/node-red-contrib-ozmap/wiki",
-  "dependencies": {
-    "ozmap-sdk": "^1.0.0"
-  }
+  "dependencies": {}
 }
