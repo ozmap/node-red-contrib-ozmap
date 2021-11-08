@@ -1,33 +1,32 @@
 <script type="text/javascript">
-    RED.nodes.registerType('networkConnector',{
-        category: 'ozmap',
-        color: '#a6bbcf',
-        defaults: {
-            name: { value:"NetworkConnector" },
-            ozmapconnection: {value:"", type:"ozmap-connection"},
-        },
+  RED.nodes.registerType('networkConnector', {
+    category: 'ozmap',
+    color: '#a6bbcf',
+    defaults: {
+      name: { value: 'NetworkConnector' },
+      ozmapconnection: { value: '', type: 'ozmap-connection' },
+    },
 
-        inputs:1,
-        outputs:2,
-        icon: "file.png",
-        label: function() {
-            return "OZMap: "+this.name;
-        }
-    });
+    inputs: 1,
+    outputs: 2,
+    icon: 'file.png',
+    label: function () {
+      return 'OZMap: ' + this.name;
+    },
+  });
 </script>
 
 <script type="text/html" data-template-name="networkConnector">
-    <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
-    </div>
-    <div class="form-row">
-        <label for="node-input-ozmapconnection"><i class="fa fa-tag"></i> OZMap Connection</label>
-        <input type="text" id="node-input-ozmapconnection" placeholder="Name">
-    </div>
-
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-ozmapconnection"><i class="fa fa-tag"></i> OZMap Connection</label>
+    <input type="text" id="node-input-ozmapconnection" placeholder="Name" />
+  </div>
 </script>
 
 <script type="text/html" data-help-name="networkConnector">
-    <p>Get NetworkConnectors from ozmap</p>
+  <p>Get NetworkConnectors from ozmap</p>
 </script>
