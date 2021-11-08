@@ -13,7 +13,7 @@ module.exports = function (RED) {
       }
 
       try {
-        console.log(msg);
+        console.warn(msg);
         msg.payload = await ozmap.getProperty().getAllByQuery({
           filter: [
             {

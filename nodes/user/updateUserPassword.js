@@ -13,6 +13,7 @@ module.exports = function (RED) {
       }
 
       try {
+        // eslint-disable-next-line no-console
         console.groupCollapsed(msg.payload);
         msg.payload = await ozmap.getUser().update(msg.payload);
 

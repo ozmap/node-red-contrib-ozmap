@@ -29,7 +29,10 @@ module.exports = {
     "plugin:prettier/recommended"
   ],
   rules: {
-    "no-console": "error",
+    "no-console": [
+      "error",
+      { allow: ["warn", "error"] }
+    ],
     "multiline-ternary": 0,
     "no-unused-vars": "off",
     "no-shadow": 0,
