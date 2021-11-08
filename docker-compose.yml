@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  nodered:
+    image: nodered-img
+    container_name: nodered-ctnr
+
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+      args:
+        - TZ=America/Sao_Paulo
+    
+    ports:
+      - target: 1880
+        published: 1880
+      - target: 9229
+        published: 9229
+        
+    networks:
+      - nodered-net
+
+    volumes:
+      - "./../data:/data"
+      - "./../ozmap-sdk:/data/node_modules/ozmap-sdk"
+      - ".:/data/node_modules/node-red-contrib-ozmap"
+
+networks:
+  nodered-net:
