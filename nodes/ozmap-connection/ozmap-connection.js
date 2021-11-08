@@ -1,6 +1,4 @@
-//const OZmapSDK = require('ozmap-sdk');
-
-const OZmapSDK = require('@ozmap/ozmap-sdk')
+const OZmapSDK = require('ozmap-sdk');
 
 module.exports = function (RED) {
   function OZMapConnection(n, config, done) {

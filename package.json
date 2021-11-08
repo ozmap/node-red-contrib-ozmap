@@ -7,7 +7,8 @@
     "test": "jest",
     "lint": "eslint ./",
     "lint:fix": "eslint ./ --fix",
-    "format": "prettier --write \"**/*.{js,jsx,json,md,html}\""
+    "format": "prettier --write \"**/*.{js,jsx,json,md,html}\"",
+    "start": "node node_modules/node-red/red.js"
   },
   "repository": {
     "type": "git",
@@ -51,9 +52,10 @@
     "url": "https://github.com/ozmap/node-red-contrib-ozmap/issues"
   },
   "homepage": "https://github.com/ozmap/node-red-contrib-ozmap/wiki",
-  "dependencies": {},
+  "dependencies": {
+    "node-red": "^2.1.3"
+  },
   "devDependencies": {
-    "@ozmap/ozmap-sdk": "0.0.19",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
