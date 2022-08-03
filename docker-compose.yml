@@ -25,5 +25,11 @@ services:
       - "./../ozmap-sdk:/data/node_modules/ozmap-sdk"
       - ".:/data/node_modules/node-red-contrib-ozmap"
 
+    environment:
+      ACCESS_KEY: "----"
+      SECRET_KEY: "----"
+      BUCKET_BACKUP: "backups-node-red"
+      FOLDER_BACKUP: "nrtestes/flows.json"
+
 networks:
   nodered-net:

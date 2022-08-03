@@ -43,7 +43,8 @@
       "updateProperty": "./nodes/property/updateProperty.js",
       "getAllPropertiesWithClients": "./nodes/property/getAllPropertiesWithClients.js",
       "connection": "./nodes/ozmap-connection/ozmap-connection.js",
-      "region": "./nodes/region/region.js"
+      "region": "./nodes/region/region.js",
+      "backupflow": "./nodes/s3/backupflow.js"
     }
   },
   "author": "Jose Raupp da Rosa Junior <jose.raupp@ozmap.com.br>",
