@@ -1,0 +1,52 @@
+<script type="text/javascript">
+  RED.nodes.registerType('backupflow', {
+    category: 'ozmap',
+    color: '#a6bbcf',
+    defaults: {
+      name: { value: '' },
+      bucket: { value: '' },
+      folderName: { value: '' },
+      accessKey: { value: '' },
+      secretKey: { value: '' }
+    },
+
+    inputs: 1,
+    outputs: 0,
+    icon: 'file.png',
+    label: function () {
+      return this.name || 'OZMap | backupFlows'
+    }
+  });
+</script>
+
+<script type="text/html" data-template-name="backupflow">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name </label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-bucket"><i class="fa fa-file"></i> Bucket </label>
+    <input type="text" id="node-input-bucket" placeholder="string" />
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-folderName"><i class="fa fa-file"></i> Folder </label>
+    <input type="text" id="node-input-folderName" placeholder="string" />
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-accessKey"><i class="fa fa-key"></i> Access Key</label>
+    <input type="text" id="node-input-accessKey" placeholder="string" />
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-secretKey"><i class="fa fa-key"> Secret Key</i></label>
+    <input type="text" id="node-input-secretKey" placeholder="string" />
+  </div>
+
+</script>
+
+<script type="text/html" data-help-name="backupflow">
+  <p></p>
+</script>
