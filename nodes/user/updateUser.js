@@ -1,5 +1,5 @@
 module.exports = function (RED) {
-  function updateProperty(config) {
+  function updateUser(config) {
     RED.nodes.createNode(this, config);
 
     this.ozmapconnection = RED.nodes.getNode(config.ozmapconnection);
@@ -12,10 +12,10 @@ module.exports = function (RED) {
       }
       this.status({ fill: 'blue', shape: 'ring', text: 'running' });
 
-      ozmap.property
+      ozmap.users
         .updateById(msg.payload?.id, msg.payload?.data)
         .then((data) => {
-          msg.payload = data || 'Property updated';
+          msg.payload = data || 'User updated';
           this.status({});
           return this.send([null, msg]);
         })
@@ -33,5 +33,5 @@ module.exports = function (RED) {
     });
   }
 
-  RED.nodes.registerType('updateProperty', updateProperty);
+  RED.nodes.registerType('updateUser', updateUser);
 };

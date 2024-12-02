@@ -5,28 +5,43 @@ module.exports = function (RED) {
     this.ozmapconnection = RED.nodes.getNode(config.ozmapconnection);
     this.status({});
     this.on('input', async (msg) => {
-      let ozmap = msg.ozmap || this.ozmapconnection.ozmap;
-      if (!ozmap.isConnected()) {
-        msg.payload = 'Ozmap not connected!';
-        this.status({ fill: 'red', shape: 'ring', text: 'disconnected' });
-        return this.send([null, msg]);
+      const ozmap = msg.ozmap || this.ozmapconnection?.ozmap;
+      if (!ozmap) {
+        msg.payload = 'Missing ozmap connection';
+        return [msg, null];
       }
-      try {
-        if (msg.payload.query) {
-          const query = JSON.parse(msg.payload.query);
-          msg.payload = await ozmap.getProject().getAllByQuery(query);
-        } else if (msg.payload.filters) {
-          msg.payload = await ozmap.getProject().getAllByFilter(msg.payload.filters);
-        } else if (msg.payload.ids) {
-          msg.payload = await ozmap.getProject().getByIds(msg.payload.ids);
-        } else {
-          msg.payload = await ozmap.getProject().getAll();
-        }
+      this.status({});
 
-        return this.send([msg, null]);
-      } catch (error) {
-        msg.payload = error;
+      try {
+        this.status({ fill: 'blue', shape: 'ring', text: 'running' });
+        const options = {
+          limit: config.limit,
+          page: config.page,
+          select: config.select,
+          filter: config.filter,
+          populate: config.populate,
+          sorter: config.sorter,
+          ...msg.payload,
+        };
+        if (options.page) {
+          options.limit = options.limit || 100;
+          msg.payload = await ozmap.project.find(options);
+        } else {
+          options.batchSize = options.limit;
+          msg.payload = await ozmap.project.findAll(options);
+        }
+        this.status({});
         return this.send([null, msg]);
+      } catch (error) {
+        const statusMessages = {
+          401: 'Unauthorized',
+          503: 'Service Unavailable',
+        };
+        const message = statusMessages[error.status] || error.name || 'unknown error';
+        this.status({ fill: 'red', shape: 'ring', text: message });
+
+        msg.payload = error;
+        return this.send([msg, null]);
       }
     });
   }
