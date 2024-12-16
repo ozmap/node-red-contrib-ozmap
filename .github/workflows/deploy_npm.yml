@@ -25,5 +25,5 @@ jobs:
 
     - name: Publish to NPM
       env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      run: npm --scope=ozmap publish
+        NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      run: npm --scope=ozmap publish --access public
