@@ -5,6 +5,8 @@
     defaults: {
       name: { value: 'Region' },
       ozmapconnection: { value: '', type: 'ozmap-connection' },
+      limit: { type: 'number', value: '' },
+      page: { type: 'number', value: '' },
     },
 
     inputs: 1,
@@ -18,19 +20,25 @@
 
 <script type="text/html" data-template-name="region">
   <div class="form-row">
+    <!--
+    <a style="color: blue" href="" target="_blank">
+    </a>
+    -->
+  </div>
+  <div class="form-row">
     <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
     <input type="text" id="node-input-name" placeholder="Name" />
   </div>
   <div class="form-row">
-    <label for="node-input-ozmapconnection"><i class="fa fa-tag"></i> OZMap Connection</label>
-    <input type="text" id="node-input-ozmapconnection" placeholder="Name" />
+    <label for="node-input-ozmapconnection"><i class="fa fa-tag"></i> Connection</label>
+    <input type="text" id="node-input-ozmapconnection" placeholder="OZMap Connection" />
   </div>
-  <!--    <div class="form-row">-->
-  <!--        <br/><br/>-->
-  <!--        <a style="color: blue" href="https://api.ozmap.com.br/#/Caixa/get_regiones" target="_blank">-->
-  <!--            https://api.ozmap.com.br/#/Caixa/get_regiones-->
-  <!--        </a>-->
-  <!--    </div>-->
+  <div class="form-row">
+    <label for="node-input-page"><i class="fa fa-sort-numeric-desc"></i> Page</label>
+    <input style="width:25%" type="number" id="node-input-page" placeholder="Page" /> &nbsp;
+    <label for="node-input-limit"><i class="fa fa-sort-numeric-desc"></i> Limit</label>
+    <input style="width:25%" type="number" id="node-input-limit" placeholder="Limit" />
+  </div>
 </script>
 
 <script type="text/html" data-help-name="region">

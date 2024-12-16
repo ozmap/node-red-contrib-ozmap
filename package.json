@@ -26,24 +26,20 @@
   ],
   "node-red": {
     "nodes": {
-      "project": "./nodes/project/project.js",
-      "project-clone": "./nodes/project/clone.js",
       "box": "./nodes/box/box.js",
-      "user": "./nodes/user/user.js",
       "cable": "./nodes/cable/cable.js",
       "client": "./nodes/client/client.js",
-      "property": "./nodes/property/property.js",
-      "createUser": "./nodes/user/createUser.js",
-      "updatePassword": "./nodes/user/updateUserPassword.js",
-      "updateClient": "./nodes/client/updateClient.js",
-      "networkConnector": "./nodes/network-connector/network-connector.js",
-      "networkConnectable": "./nodes/network-connectable/network-connectable.js",
-      "getOZmapClientByONUCode": "./nodes/client/getOZmapClientByONUCode.js",
-      "getPropertyByClientId": "./nodes/property/getPropertyByClientId.js",
-      "updateProperty": "./nodes/property/updateProperty.js",
-      "getAllPropertiesWithClients": "./nodes/property/getAllPropertiesWithClients.js",
       "connection": "./nodes/ozmap-connection/ozmap-connection.js",
-      "region": "./nodes/region/region.js"
+      "createUser": "./nodes/user/createUser.js",
+      "networkConnectable": "./nodes/network-connectable/network-connectable.js",
+      "networkConnector": "./nodes/network-connector/network-connector.js",
+      "project": "./nodes/project/project.js",
+      "property": "./nodes/property/property.js",
+      "region": "./nodes/region/region.js",
+      "updateClient": "./nodes/client/updateClient.js",
+      "updateProperty": "./nodes/property/updateProperty.js",
+      "updateUser": "./nodes/user/updateUser.js",
+      "user": "./nodes/user/user.js"
     }
   },
   "author": "Jose Raupp da Rosa Junior <jose.raupp@ozmap.com.br>",
@@ -53,7 +49,7 @@
   },
   "homepage": "https://github.com/ozmap/node-red-contrib-ozmap/wiki",
   "dependencies": {
-    "@ozmap/ozmap-sdk": "^0.2.1",
+    "@ozmap/ozmap-sdk": "^1.0.17",
     "node-red": "^2.1.3"
   },
   "devDependencies": {

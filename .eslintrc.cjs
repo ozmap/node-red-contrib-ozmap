@@ -36,7 +36,7 @@ module.exports = {
     "multiline-ternary": 0,
     "no-unused-vars": "off",
     "no-shadow": 0,
-    "no-useless-constructor": "off",  
+    "no-useless-constructor": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
