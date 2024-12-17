@@ -8,7 +8,7 @@ Wrapper da API do OZMap para Node RED.
 
 Esse projeto foi desenvolvido usando:
 
-* [Node.js (v12)](https://nodejs.org/en/)
+* [Node.js (v14)](https://nodejs.org/en/)
 * [node-red (v2.1.3)](https://nodered.org/)
 * [Docker](https://docs.docker.com/);
 * [Docker Compose](https://docs.docker.com/compose/);
@@ -17,12 +17,12 @@ Para instalar as dependências de projeto localmente, na versão correta do Node
 Com o mesmo devidamente instalado e configurado, executar no terminal, na raíz do projeto:
 
 ```shell
-nvm install 12
+nvm install 14
 ```
 
 Caso a versão correta já esteja instalada, basta executar:
 ```shell
-nvm use 12
+nvm use 14
 ```
 
 Em seguida, instalar as dependências definidas em `package.json`:
